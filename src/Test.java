@@ -8,6 +8,9 @@ public class Test {
         l.add("I");
         l.add("love");
         l.add("you");
+        l.print();
+       l.fz();
+        l.print();
 
 
 

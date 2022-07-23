@@ -75,6 +75,25 @@ public class DoubleLinkedList<T> {
 
 
     //链表翻转功能
+    public void fz(){
+        GT<T> d = begin;
+        while(true){
+            if(d.last==null){
+                d.last=new GT<T>();
+                now=d.last;
+            }
+            if(d.next==null){
+                d.last.last=null;
+                begin=d.last;
+                break;
+            }
+            GT<T> temple =d.next;
+            d.next =d.last;
+            d.last=temple;
+            d=temple;
+        }
+
+    }
 
 
     //将实现每个功能时的定位功能进行封装，精简代码
