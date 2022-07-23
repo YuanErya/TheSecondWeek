@@ -10,6 +10,8 @@ public class Test {
         l.add("you");
         l.print();
 
+        l.getin(0,"22");
+        l.print();
 
 
     }

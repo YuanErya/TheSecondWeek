@@ -8,6 +8,7 @@ public class DoubleLinkedList<T> {
     GT<T> now = new GT<>();
     GT<T> begin = now;//记录首位
 
+
     //往后增添的功能
     public void add(T t) {
         now.date = t;
@@ -17,6 +18,7 @@ public class DoubleLinkedList<T> {
         now.last = temp;
     }
 
+
     //输出遍历当前链表
     public void print() {
         System.out.print("[");
@@ -24,18 +26,81 @@ public class DoubleLinkedList<T> {
         while (true) {
             if (d.next != null) {
                 System.out.print(d.date);
-                if(d.next.next!=null)
-                System.out.print(",");
+                if (d.next.next != null)
+                    System.out.print(",");
             }
             if (d.next == null) {
                 break;
             }
-            d=d.next;
+            d = d.next;
         }
         System.out.print("]");
     }
 
-}
+
+    //删除功能
+    public void remove(int r) {
+        int i = 0;
+        GT<T> d = begin;
+        if (r == 0) {
+            d.next.last = null;
+            begin = d.next;
+        } else {
+
+            while (true) {
+                d = d.next;
+                i++;
+                try {
+                    if (d.next == null) {
+                        throw new ArrayIndexOutOfBoundsException();
+                    }
+                } catch (ArrayIndexOutOfBoundsException E) {
+                    System.out.println("");
+                    System.out.println("所给下标越界");
+                }
+                if (i == r) {
+                    break;
+                }
+            }
+            GT<T> temple = d.last;
+            d.last.next = d.next;
+            d.next.last = temple;
+        }
+    }
+
+
+    //插入功能
+    public void getin(int r,T t){
+        GT<T> d = begin;
+        int i=0;
+        while (true) {
+            if(r==0){
+                break;
+            }
+            d = d.next;
+            i++;
+            try {
+                if (d.next == null) {
+                    throw new ArrayIndexOutOfBoundsException();
+                }
+            } catch (ArrayIndexOutOfBoundsException E) {
+                System.out.println("");
+                System.out.println("所给下标越界");
+            }
+            if (i == r) {
+                break;
+            }
+        }
+        GT<T> temple=d.next;
+        d.next=new GT<T>(t);
+        d=d.next;
+        d.last=temple.last;
+        d.next=temple;
+}}
+
+
+
+
 
 //泛型类的单个节点
 class GT<T> {
