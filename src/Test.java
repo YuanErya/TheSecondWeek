@@ -8,10 +8,7 @@ public class Test {
         l.add("I");
         l.add("love");
         l.add("you");
-        l.print();
 
-        l.getin(0,"22");
-        l.print();
 
 
     }

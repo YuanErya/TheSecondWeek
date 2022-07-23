@@ -46,22 +46,7 @@ public class DoubleLinkedList<T> {
             d.next.last = null;
             begin = d.next;
         } else {
-
-            while (true) {
-                d = d.next;
-                i++;
-                try {
-                    if (d.next == null) {
-                        throw new ArrayIndexOutOfBoundsException();
-                    }
-                } catch (ArrayIndexOutOfBoundsException E) {
-                    System.out.println("");
-                    System.out.println("所给下标越界");
-                }
-                if (i == r) {
-                    break;
-                }
-            }
+            d = find(d, r);
             GT<T> temple = d.last;
             d.last.next = d.next;
             d.next.last = temple;
@@ -70,11 +55,33 @@ public class DoubleLinkedList<T> {
 
 
     //插入功能
-    public void getin(int r,T t){
+    public void getin(int r, T t) {
         GT<T> d = begin;
-        int i=0;
+        d = find(d, r);
+        GT<T> temple = d.next;
+        d.next = new GT<T>(t);
+        d = d.next;
+        d.last = temple.last;
+        d.next = temple;
+    }
+
+
+    //索引查找法
+    public T get(int r) {
+        GT<T> d = begin;
+        d = find(d, r);
+        return d.date;
+    }
+
+
+    //链表翻转功能
+
+
+    //将实现每个功能时的定位功能进行封装，精简代码
+    private GT<T> find(GT<T> d, int r) {
+        int i = 0;
         while (true) {
-            if(r==0){
+            if (r == 0) {
                 break;
             }
             d = d.next;
@@ -91,15 +98,9 @@ public class DoubleLinkedList<T> {
                 break;
             }
         }
-        GT<T> temple=d.next;
-        d.next=new GT<T>(t);
-        d=d.next;
-        d.last=temple.last;
-        d.next=temple;
-}}
-
-
-
+        return d;
+    }
+}
 
 
 //泛型类的单个节点
