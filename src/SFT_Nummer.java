@@ -27,7 +27,7 @@ public class SFT_Nummer {
     }
 
 
-    //用于打印list
+    //用于打印list的方法
     private void print() {
         for (int i = 0; i < Nlist.size(); i++) {
             System.out.print(Nlist.get(i));
