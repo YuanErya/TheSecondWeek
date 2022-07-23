@@ -75,22 +75,22 @@ public class DoubleLinkedList<T> {
 
 
     //链表翻转功能
-    public void fz(){
+    public void fz() {
         GT<T> d = begin;
-        while(true){
-            if(d.last==null){
-                d.last=new GT<T>();
-                now=d.last;
+        while (true) {
+            if (d.last == null) {
+                d.last = new GT<T>();
+                now = d.last;
             }
-            if(d.next==null){
-                d.last.last=null;
-                begin=d.last;
+            if (d.next == null) {
+                d.last.last = null;
+                begin = d.last;
                 break;
             }
-            GT<T> temple =d.next;
-            d.next =d.last;
-            d.last=temple;
-            d=temple;
+            GT<T> temple = d.next;
+            d.next = d.last;
+            d.last = temple;
+            d = temple;
         }
 
     }
