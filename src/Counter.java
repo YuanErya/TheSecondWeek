@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Counter {
     //实现计算器的类
     private String st;
+    StringBuffer sb=new StringBuffer();
 
 
     //获取用户输入的表达式,并检测输入的表达式的正确性，并返回操作符集合
@@ -43,8 +44,24 @@ public class Counter {
 
     //字符处理
     public void ys() {
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        String temple ;//用于储存临时字符
         ArrayList<Character> fh = getsz();//接收操作符的集合
         if (fh != null) {
+            for (int i = 0; i <st.length() ; i++) {
+                if(!pdd(i)){
+                    temple=st.substring(i,i+1);
+                    sb.append(temple);
+                }else if(pdd(i)){
+                    num.add(Integer.parseInt(sb.toString()));
+                    sb.delete(0,sb.length());
+                }
+                if(i==st.length()-1){
+                    num.add(Integer.parseInt(sb.toString()));
+                    sb.delete(0,sb.length());
+                }
+            }//已将所有数字转化为int存入集合
+
 
 
 
