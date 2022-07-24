@@ -15,16 +15,12 @@ public class Counter {
         boolean PD = true;//用于标记当前式子是否符合标准
         try {
             for (int i = 0; i < st.length(); i++) {
-                if (st.charAt(i) == 40 || st.charAt(i) == 41 || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
+                if (st.charAt(i) =='(' || st.charAt(i) == ')' || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
                     //检测式子中的全部符号
                     fh.add(st.charAt(i));
                 } else if (st.charAt(i) <= 57 && st.charAt(i) >= 48) {
                     //检测式子中的全部数字
-                } else if (!((st.charAt(st.length() - 1) <= 57 && st.charAt(st.length() - 1) >= 48) || st.charAt(i) == ')')) {
-                    //检测式子最后一位是否符合标准
-                    PD = false;
-                    throw new IllegalArgumentException();
-                } else {
+                }else {
                     //式子中包含除了数字和相应的符号以为外的其他字符则抛出异常
                     PD = false;
                     throw new IllegalArgumentException();
