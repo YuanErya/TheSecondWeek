@@ -15,12 +15,12 @@ public class Counter {
         boolean PD = true;//用于标记当前式子是否符合标准
         try {
             for (int i = 0; i < st.length(); i++) {
-                if (st.charAt(i) =='(' || st.charAt(i) == ')' || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
+                if (st.charAt(i) == '(' || st.charAt(i) == ')' || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
                     //检测式子中的全部符号
                     fh.add(st.charAt(i));
                 } else if (st.charAt(i) <= 57 && st.charAt(i) >= 48) {
                     //检测式子中的全部数字
-                }else {
+                } else {
                     //式子中包含除了数字和相应的符号以为外的其他字符则抛出异常
                     PD = false;
                     throw new IllegalArgumentException();
@@ -50,28 +50,28 @@ public class Counter {
                 if (!pdd(i)) {
 
                     sb.append(temple);
-                    if(i==st.length()-1||pdd(i+1)){
+                    if (i == st.length() - 1 || pdd(i + 1)) {
                         num.add(Integer.parseInt(sb.toString()));
                         sb.delete(0, sb.length());
                         if (!tfh.isEmpty() && (tfh.get(tfh.size() - 1) == "*" || tfh.get(tfh.size() - 1) == "/")) {
                             getNF(num, tfh);
                         }
                     }
-                } else if (st.charAt(i) == '('||st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
+                } else if (st.charAt(i) == '(' || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
                     tfh.add(temple);
 
-                }else{
-                    hkh(num,tfh);
+                } else {
+                    hkh(num, tfh);
                 }
             }//已将所有数字转化为int存入集合
 
-            while(true){
+            while (true) {
                 if (num.size() == 1) {
                     System.out.println("计算出结果为：");
                     System.out.print(num);
                     break;
                 } else {
-                    getNF(num,tfh);
+                    getNF(num, tfh);
                 }
             }
         }
@@ -80,7 +80,7 @@ public class Counter {
 
     //判断是否为符号位进行封装
     private boolean pdd(int i) {
-        if (st.charAt(i) == ')'||st.charAt(i) == '('||st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
+        if (st.charAt(i) == ')' || st.charAt(i) == '(' || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
             return true;
         } else {
             return false;
@@ -105,7 +105,7 @@ public class Counter {
             case "+":
                 result = num1 + num2;
                 break;
-            case"-":
+            case "-":
                 result = num1 - num2;
                 break;
         }
@@ -117,13 +117,13 @@ public class Counter {
 
 
     //后括号的时候
-    private void hkh(ArrayList<Integer> num, ArrayList<String> fh){
-        while(true){
-            if(fh.get(fh.size() - 1)=="("){
+    private void hkh(ArrayList<Integer> num, ArrayList<String> fh) {
+        while (true) {
+            if (fh.get(fh.size() - 1) == "(") {
                 fh.remove(fh.size() - 1);
                 break;
-            }else{
-                getNF(num,fh);
+            } else {
+                getNF(num, fh);
             }
         }
     }
