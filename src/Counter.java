@@ -6,7 +6,7 @@ public class Counter {
     private String st;
 
 
-    //获取用户输入的表达式,并检测输入的表达式的正确性
+    //获取用户输入的表达式,并检测输入的表达式的正确性，并返回操作符集合
     private ArrayList<Character> getsz() {
         System.out.println("请输入所需要计算的表达式");
         st = new Scanner(System.in).nextLine();
@@ -14,7 +14,7 @@ public class Counter {
         boolean PD = true;//用于标记当前式子是否符合标准
         try {
             for (int i = 0; i < st.length(); i++) {
-                if (st.charAt(i) == 40 || st.charAt(i) == 41 || st.charAt(i) == '.' || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
+                if (st.charAt(i) == 40 || st.charAt(i) == 41 || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
                     //检测式子中的全部符号
                     fh.add(st.charAt(i));
                 } else if (st.charAt(i) <= 57 && st.charAt(i) >= 48) {
@@ -40,7 +40,21 @@ public class Counter {
         }
     }//获取用户输入的表达式,并检测输入的表达式的正确性
 
-    //判断是否为符号位
+
+    //字符处理
+    public void ys() {
+        ArrayList<Character> fh = getsz();//接收操作符的集合
+        if (fh != null) {
+
+
+
+
+        }
+    }
+
+
+
+    //判断是否为符号位进行封装
     private boolean pdd(int i) {
         if (st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
             return true;
@@ -49,21 +63,4 @@ public class Counter {
         }
     }
     //判断是否为符号位
-
-
-    //运算处理
-    private void ys() {
-        ArrayList<Character> fh = getsz();
-        if (fh != null) {
-            if (fh.indexOf('(') == -1) {
-                for (int i = 0; i < st.length(); i++) {
-                    if (fh.indexOf('*') == -1) {
-                    }
-                }
-
-            }
-        }
-    }
-
-
 }

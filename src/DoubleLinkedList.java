@@ -107,7 +107,7 @@ public class DoubleLinkedList<T> {
             i++;
             try {
                 if (d.next == null) {
-                    throw new ArrayIndexOutOfBoundsException();
+                    throw new ArrayIndexOutOfBoundsException();//索引越界则抛出异常
                 }
             } catch (ArrayIndexOutOfBoundsException E) {
                 System.out.println("");
