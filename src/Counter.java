@@ -60,7 +60,7 @@ public class Counter {
                 } else if (st.charAt(i) == '(' || st.charAt(i) == '+' || st.charAt(i) == '-' || st.charAt(i) == '*' || st.charAt(i) == '/') {
                     tfh.add(temple);
 
-                } else {
+                } else if(st.charAt(i) == ')') {
                     hkh(num, tfh);
                 }
             }//已将所有数字转化为int存入集合
