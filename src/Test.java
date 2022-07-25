@@ -1,6 +1,6 @@
 public class Test {
     public static void main(String[] args) {
-       /* SFT_Nummer s = new SFT_Nummer();//算法题对象自然数的拆分//
+        SFT_Nummer s = new SFT_Nummer();//算法题对象自然数的拆分//
         s.sft();
 
         DoubleLinkedList<String> l = new DoubleLinkedList<String>();
@@ -13,7 +13,7 @@ public class Test {
         l.fz();//翻转
         l.print();//遍历
 
-        */
+
 
 
         Counter c = new Counter();//计算器对象
